@@ -20,7 +20,8 @@ const server = http.createServer((req, res) => {
         // listen for end of parsing request data
         req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
-            fs.writeFileSync('text.txt', parsedBody.split('=')[1]);
+            const data =  parsedBody.split('=')[0];
+            fs.writeFileSync('text.txt', data);
         });
         
         res.statusCode = 302;
