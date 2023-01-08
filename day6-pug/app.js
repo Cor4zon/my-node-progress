@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/admin', AdminRouter);
 
-app.use('/shop', ShopRouter);
+app.use('/', ShopRouter);
 
 app.use((err, res, req, next) => {
     console.log(err);
