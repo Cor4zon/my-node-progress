@@ -2,15 +2,11 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const ShopRouter = require('./routes/shop');
-// const {router: AdminRouter, products } = require('./routes/admin');
 const AdminRouter = require('./routes/admin').router;
-const engine = require('express-handlebars');
 
 const app = express();
 
-app.engine('handlebars', engine());
-// app.set('view engine', 'pug');
-app.set('view engine', 'handlebars');
+app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.use(express.static(path.join(__dirname, 'public')));
