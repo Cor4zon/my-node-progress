@@ -11,9 +11,19 @@ exports.getProducts = (req, res, next) => {
 };
 
 exports.getProductById = (req, res, next) => {
-  const prodId = req.query.id;
+  const prodId = req.params.productId;
+  console.log(`id: ${prodId}`);
+
+
   Product.fetchById(prodId, (product) => {
+    console.log('😻')
     console.log(product);
+
+    res.render('shop/product-detail', {
+      product: product,
+      pageTitle: 'Product details',
+      path: '/products',
+    })
   })
 }
 
