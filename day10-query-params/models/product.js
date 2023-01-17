@@ -17,6 +17,11 @@ const getProductsFromFile = cb => {
   });
 };
 
+const postCart = (req, res, next) => {
+  const prodId = req.body.prodId;
+  
+}
+
 
 module.exports = class Product {
   constructor(title, imageUrl, description, price) {
